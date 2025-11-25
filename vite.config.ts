@@ -4,10 +4,12 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Setting base to './' ensures assets are loaded relatively.
-  // This fixes the "blank page" issue on GitHub Pages subdirectories.
+  // 'base' controls how asset paths are generated. 
+  // './' makes them relative, allowing the site to work in subdirectories (like on GitHub Pages).
   base: './',
   build: {
     outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false
   }
 });
