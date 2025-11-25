@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   // 'base' controls how asset paths are generated. 
   // './' makes them relative, allowing the site to work in subdirectories (like on GitHub Pages).
-  base: '/softadult/',
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
