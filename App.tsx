@@ -7,7 +7,6 @@ import BannerSlot from './components/BannerSlot';
 import RelatedGalleries from './components/RelatedGalleries';
 import Footer from './components/Footer';
 import PushModal from './components/PushModal';
-import ExitIntentModal from './components/ExitIntentModal';
 import { PHOTOS, CONFIG } from './constants';
 
 const App: React.FC = () => {
@@ -84,7 +83,7 @@ const App: React.FC = () => {
         onConfirm={triggerSystemPushPrompt}
       />
       
-      <ExitIntentModal />
+      {/* Exit Intent Modal removed as requested */}
     </div>
   );
 };

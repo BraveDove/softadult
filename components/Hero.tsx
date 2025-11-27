@@ -1,13 +1,13 @@
 import React from 'react';
-import { SMARTLINK_PRELANDER } from '../constants';
+import { HERO_IMAGE_URL } from '../constants';
 
 const Hero: React.FC = () => {
   return (
     <section className="relative w-full h-[60vh] mt-14 overflow-hidden flex items-center justify-center">
-      {/* Background Image with Overlay - Static Image */}
+      {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1518105570919-e342af1a8275?q=80&w=2074&auto=format&fit=crop')` }}
+        style={{ backgroundImage: `url('${HERO_IMAGE_URL}')` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background z-10" />
       </div>

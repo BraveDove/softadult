@@ -5,6 +5,10 @@ export const SMARTLINK_PRELANDER = '#PRELANDER_LINK_HERE'; // e.g. https://track
 export const SMARTLINK_NATIVE_CARD = '#SMARTLINK_NATIVE';
 export const SMARTLINK_EXIT_INTENT = '#SMARTLINK_EXIT';
 
+// Images
+// PASTE YOUR IMAGE LINK BELOW inside the quotes:
+export const HERO_IMAGE_URL = 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=2670&auto=format&fit=crop';
+
 // Configuration
 export const CONFIG: GalleryConfig = {
   totalPhotos: 18,
