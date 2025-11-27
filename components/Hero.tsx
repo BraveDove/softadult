@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
           // 50% - центр по горизонтали
           // 20% - отступ сверху (0% = самый верх, 100% = самый низ, 50% = центр)
           // Поиграйте со вторым числом (20%), чтобы подвинуть картинку вверх/вниз
-          backgroundPosition: '50% 20%' 
+          backgroundPosition: '50% -157%' 
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background z-10" />
