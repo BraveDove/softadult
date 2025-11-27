@@ -5,21 +5,25 @@ const NativeAdCard: React.FC = () => {
   return (
     <a 
       href={SMARTLINK_NATIVE_CARD} 
-      className="relative aspect-[3/4] overflow-hidden rounded-md bg-surface border-2 border-secondary/50 group block"
+      className="relative aspect-[3/4] overflow-hidden rounded-md bg-surface cursor-pointer group block"
     >
-      <div className="absolute inset-0 bg-surface flex flex-col items-center justify-center text-center p-4">
-        <span className="text-secondary text-xs font-bold uppercase tracking-widest mb-2 animate-pulse">
-          Premium Access
+      {/* Use an image that looks like content but is slightly different/attractive */}
+      <img
+        src="https://images.unsplash.com/photo-1520483691742-bada60a1edd3?q=80&w=1000&auto=format&fit=crop"
+        alt="Exclusive Content"
+        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 group-hover:brightness-110 grayscale-[30%] group-hover:grayscale-0"
+      />
+      
+      {/* Subtle Overlay to distinguish it slightly */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+
+      <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+        <span className="inline-block px-2 py-1 bg-secondary text-black text-[10px] font-bold uppercase tracking-wider mb-1 rounded-sm">
+          Recommended
         </span>
-        <h3 className="text-xl font-bold text-white mb-2 leading-tight">
-          Exclusive: 24 Unseen Photos
+        <h3 className="text-white text-sm font-bold leading-tight">
+          See More Exclusive Photos
         </h3>
-        <p className="text-gray-400 text-xs mb-4">
-          Unlock the full uncensored gallery now.
-        </p>
-        <div className="px-4 py-2 bg-secondary text-black text-sm font-bold rounded shadow-lg group-hover:bg-white transition-colors">
-          Watch Now
-        </div>
       </div>
     </a>
   );

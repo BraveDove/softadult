@@ -4,25 +4,54 @@ import { SMARTLINK_EXIT_INTENT } from '../constants';
 const ExitIntentModal: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const hasTriggered = useRef(false);
+  const isInitialized = useRef(false);
 
   useEffect(() => {
+    // 1. Initialization Delay: Don't trigger anything for the first 2 seconds
+    const initTimer = setTimeout(() => {
+      isInitialized.current = true;
+      
+      // Push state for mobile back button detection
+      window.history.pushState({ page: 'gallery' }, document.title, window.location.href);
+    }, 2000);
+
+    // 2. Desktop Exit Intent (Mouse Leave)
     const handleMouseLeave = (e: MouseEvent) => {
-      // Trigger when mouse leaves the top of the viewport
+      if (!isInitialized.current) return;
+      
       if (e.clientY <= 0 && !hasTriggered.current) {
-        
-        // Check session storage to avoid spamming the user on refresh
-        const sessionTriggered = sessionStorage.getItem('exitIntentShown');
-        if (!sessionTriggered) {
-          setIsVisible(true);
-          hasTriggered.current = true;
-          sessionStorage.setItem('exitIntentShown', 'true');
-        }
+        triggerModal();
+      }
+    };
+
+    // 3. Mobile Back Button Interception
+    const handlePopState = (event: PopStateEvent) => {
+       if (!isInitialized.current) return;
+
+       if (!hasTriggered.current) {
+         // Prevent the back action visually by showing modal
+         // We might need to push state again to "hold" them here if they dismiss it, 
+         // but for now we just show the modal.
+         triggerModal();
+       }
+    };
+
+    const triggerModal = () => {
+      const sessionTriggered = sessionStorage.getItem('exitIntentShown');
+      if (!sessionTriggered) {
+        setIsVisible(true);
+        hasTriggered.current = true;
+        sessionStorage.setItem('exitIntentShown', 'true');
       }
     };
 
     document.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('popstate', handlePopState);
+
     return () => {
+      clearTimeout(initTimer);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('popstate', handlePopState);
     };
   }, []);
 
