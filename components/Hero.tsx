@@ -3,17 +3,18 @@ import { HERO_IMAGE_URL } from '../constants';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative w-full h-[60vh] mt-14 overflow-hidden flex items-center justify-center">
+    // CHANGE: Replaced 'h-[60vh]' with 'h-[500px] md:h-[650px]'
+    // This fixes the height so it doesn't jump when you open F12/DevTools.
+    <section className="relative w-full h-[500px] md:h-[650px] mt-14 overflow-hidden flex items-center justify-center">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover z-0"
         style={{ 
           backgroundImage: `url('${HERO_IMAGE_URL}')`,
-          // НАСТРОЙКИ ПОЗИЦИИ ЗДЕСЬ:
-          // 50% - центр по горизонтали
-          // 20% - отступ сверху (0% = самый верх, 100% = самый низ, 50% = центр)
-          // Поиграйте со вторым числом (20%), чтобы подвинуть картинку вверх/вниз
-          backgroundPosition: '50% -157%' 
+          // НАСТРОЙКИ ПОЗИЦИИ:
+          // Теперь, когда высота фиксирована, картинка будет стоять стабильно.
+          // Вы можете продолжать настраивать эти проценты, чтобы подвинуть фото выше/ниже.
+          backgroundPosition: '50% 20%' 
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background z-10" />
