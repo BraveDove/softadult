@@ -61,6 +61,7 @@ const Header: React.FC = () => {
             </a>
             <a 
               href="#" 
+              className="text-sm font-bold text-gray-200 hover:text-primary py-2 border-b border-white/5"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               FOLLOW US
@@ -68,7 +69,6 @@ const Header: React.FC = () => {
             <a 
               href="#" 
               className="text-sm font-bold text-primary py-2"
-              className="text-sm font-bold text-gray-200 hover:text-primary py-2 border-b border-white/5"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               SIGN IN
